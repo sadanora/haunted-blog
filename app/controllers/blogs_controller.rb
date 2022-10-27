@@ -40,6 +40,7 @@ class BlogsController < ApplicationController
   end
 
   def destroy
+    @blog = current_user.blogs.find(params[:id])
     @blog.destroy!
 
     redirect_to blogs_url, notice: 'Blog was successfully destroyed.', status: :see_other
